@@ -1,18 +1,19 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalState';
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
+import "./Balance.css";
 
-//Money formatter function
 function moneyFormatter(num) {
-  let p = num.toFixed(2).split('.');
+  let p = Math.abs(num).toFixed(2).split(".");
   return (
-    '$ ' + (p[0].split('')[0]=== '-' ? '-' : '') +
+    "₹ " +
+    (num < 0 ? "-" : "") +
     p[0]
-      .split('')
+      .split("")
       .reverse()
       .reduce(function (acc, num, i, orig) {
-        return num === '-' ? acc : num + (i && !(i % 3) ? ',' : '') + acc;
-      }, '') +
-    '.' +
+        return num + (i && !(i % 3) ? "," : "") + acc;
+      }, "") +
+    "." +
     p[1]
   );
 }
@@ -20,14 +21,30 @@ function moneyFormatter(num) {
 export const Balance = () => {
   const { transactions } = useContext(GlobalContext);
 
-  const amounts = transactions.map(transaction => transaction.amount);
+  const income = transactions
+    .filter((transaction) => transaction.description === "income")
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
 
-  const total = amounts.reduce((acc, item) => (acc += item), 0);
+  const savings = transactions
+    .filter((transaction) => transaction.description === "saving")
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
+
+  const expenses = Math.abs(
+    transactions
+      .filter((transaction) => transaction.description === "expense")
+      .reduce((acc, transaction) => acc + transaction.amount, 0)
+  );
+
+  const balance = income - savings - expenses;
 
   return (
-    <>
-      <h4>Your Balance</h4>
-    <h1>{moneyFormatter(total)}</h1>
-    </>
-  )
-}
+    <div className="balance-container">
+      <h4>Your Total Balance</h4>
+      <h1>{moneyFormatter(balance)}</h1>
+      <div className="savings">
+        <h4>Your Savings</h4>
+        <h1>{moneyFormatter(savings)}</h1>
+      </div>
+    </div>
+  );
+};
