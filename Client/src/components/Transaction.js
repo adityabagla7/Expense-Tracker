@@ -18,7 +18,7 @@ function moneyFormatter(num) {
 }
 
 function formatDate(date) {
-  const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
   return date.toLocaleString(undefined, options);
 }
 
