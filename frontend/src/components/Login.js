@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // Add some basic styling
+import './Login.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -11,21 +11,22 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h1>Expense Tracker</h1>
+      <img src="https://shorturl.at/z8ARn" alt="Expense Tracker" className="login-image" />
       <form>
-        <div>
+        <div className="form-group">
           <label>Email</label>
-          <input type="email" />
+          <input type="email" placeholder="Enter your email" />
         </div>
-        <div>
+        <div className="form-group">
           <label>Username</label>
-          <input type="text" />
+          <input type="text" placeholder="Enter your username" />
         </div>
-        <div>
+        <div className="form-group">
           <label>Password</label>
-          <input type="password" />
+          <input type="password" placeholder="Enter your password" />
         </div>
-        <button type="button" onClick={handleLogin}>Login</button>
+        <button type="button" onClick={handleLogin} className="login-button">Signin/Signup</button>
       </form>
     </div>
   );
