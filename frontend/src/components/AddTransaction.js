@@ -15,14 +15,13 @@ export const AddTransaction = () => {
     e.preventDefault();
 
     const newTransaction = {
-      date: new Date().toISOString().split('T')[0], // Use current date
+      date: new Date().toISOString().split('T')[0], 
       cause: text,
       description,
       amount: description === "expense" ? -Math.abs(parseFloat(amount)) : Math.abs(parseFloat(amount)),
       budget: budgetLimit ? parseFloat(budgetLimit) : null
     };
 
-    // Optimistically update the UI
     addTransaction(newTransaction);
 
     try {
