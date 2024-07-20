@@ -1,28 +1,26 @@
 const express = require('express');
-const mysql = require('mysql2'); // Use mysql2 for modern features and better compatibility
+const mysql = require('mysql2'); 
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // To parse JSON bodies
+app.use(express.json()); 
 
-// MySQL Connection
 const db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',              // Replace with your MySQL username
-  password: '1234', // Replace with your MySQL password
-  database: 'my_database'  // Replace with your MySQL database name
+  user: 'root',   
+  password: '1234', 
+  database: 'my_database'  
 });
 
 db.connect((err) => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
-    process.exit(1); // Exit process if connection fails
+    process.exit(1);
   }
   console.log('Connected to MySQL');
 });
 
-// Routes
 app.get('/api/transactions', (req, res) => {
   const sql = 'SELECT * FROM transactions';
   db.query(sql, (err, results) => {
@@ -49,7 +47,6 @@ app.post('/api/transactions', (req, res) => {
   });
 });
 
-// Use port 8081 or another port of your choice
 const PORT = process.env.PORT || 8081;
 
 app.listen(PORT, () => {
