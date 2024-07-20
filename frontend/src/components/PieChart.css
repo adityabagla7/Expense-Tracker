@@ -1,0 +1,16 @@
+/* components/PieChart.css */
+.pie-chart-container {
+  width: 300px;
+  margin: 0;
+  position: absolute;
+  top: 180px; /* Adjust as needed */
+  right: 30px; /* Adjust as needed */
+}
+
+.pie-chart-title {
+  color: #1e90ff; /* Blue color */
+  text-align: center; /* Center the title within the container */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bbb;
+  margin-bottom: 20px;
+}
