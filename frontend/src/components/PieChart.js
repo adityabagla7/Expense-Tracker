@@ -48,9 +48,12 @@ export const PieChart = () => {
   };
 
   return (
+    <div className="pie-chart">
+
     <div className="pie-chart-container">
       <h2 className="pie-chart-title">Financial Breakdown</h2>
       <Pie data={data} />
+    </div>
     </div>
   );
 };

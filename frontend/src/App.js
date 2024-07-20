@@ -12,19 +12,26 @@ import Login from './components/Login';
 import './App.css';
 
 function MainApp() {
-  return (
+ return (
     <GlobalProvider>
       <Header />
       <div className="container">
-        <Balance />
-        <IncomeExpenses />
-        <TransactionList />
-        <AddTransaction />
-        <PieChart />
+        <div className="content-wrapper">
+          <div className="left-column">
+            <Balance />
+            <IncomeExpenses />
+            <AddTransaction />
+          </div>
+          <div className="right-column">
+            <TransactionList />
+            <PieChart />
+          </div>
+        </div>
       </div>
     </GlobalProvider>
   );
 }
+
 
 function App() {
   return (

@@ -1,17 +1,20 @@
-
+/* components/Header.css */
 .header {
-  background-color: rgba(44, 62, 80, 0.9);  
+  background-color: #2c3e50; /* Dark blue background */
   color: white;
   padding: 1rem 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: relative;
-  width: 1260px; 
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 1000;
+  text-align: center; /* Center the text */
 }
 
 .header-content {
   display: flex;
-  justify-content: center; 
+  justify-content: center; /* Center the content horizontally */
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
@@ -23,10 +26,8 @@
   font-size: 1.5rem;
 }
 
+/* Add this to your App.css or main CSS file */
 body {
   margin: 0;
+  padding-top: 60px; /* Adjust this value based on your header's height */
 }
-
-
-
-  

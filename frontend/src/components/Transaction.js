@@ -31,9 +31,7 @@ export const Transaction = ({ transaction }) => {
       <span className={`transaction-amount ${transaction.amount < 0 ? 'minus' : 'plus'}`}>
         {moneyFormatter(transaction.amount)}
       </span>
-      <span className="transaction-budgetLimit">
-        {transaction.budget !== null ? moneyFormatter(transaction.budget) : 'N/A'}
-      </span>
+   
       <button onClick={() => deleteTransaction(transaction.id)} className="delete-btn">x</button>
     </li>
   );

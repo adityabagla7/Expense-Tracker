@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: lightblue;
+  background-color: #ADD8E6; /* Light blue background color */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,8 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 400px;
+  max-width: 1200px;
+  padding: 20px;
 }
 
 h1 {
@@ -149,8 +150,26 @@ input[type='number'] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+
 @media (max-width: 320px) {
   .container {
     width: 300px;
   }
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column, .right-column {
+  flex: 1;
+}
+
+.left-column {
+  margin-right: 40px; /* Increase gap between left and right columns */
+}
+
+.right-column {
+  margin-left: 40px; /* Increase gap between right and left columns */
 }
